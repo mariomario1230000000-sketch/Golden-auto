@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golden Auto Import — Formulari i porosisë</title>
+  <meta name="description" content="Formular zyrtar i Golden Auto Import për porositë e makinave nga Korea — Shqipëri / Kosovë / Itali." />
+  <style>
+    :root{
+      --bg:#0a0b0e; --panel:#10131a; --edge:#1b1f29; --muted:#a9b0bb;
+      --text:#f5f7fa; --gold:#f5c518; --gold-2:#ffe48a; --err:#ff6b6b; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}
+    a{color:var(--gold);text-decoration:none}
+    .wrap{max-width:860px;margin:0 auto;padding:22px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
+      background:radial-gradient(120% 120% at 10% 10%, rgba(245,197,24,.28), transparent 55%), linear-gradient(135deg,#171923,#0d0f16);
+      border:1px solid var(--edge);box-shadow:0 14px 40px rgba(0,0,0,.35);font-weight:900;color:var(--gold)}
+    h1{font-size:clamp(24px,4.8vw,40px);margin:0}
+    .tag{color:var(--muted);font-size:15px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--edge);border-radius:999px;background:#0f1118;color:var(--muted);font-size:14px}
+    .panel{background:linear-gradient(180deg,#12141b,#0f1116);border:1px solid var(--edge);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+    .panel p{margin:0;font-size:18px}
+    form .card{background:linear-gradient(180deg,#12141b,#10131a);border:1px solid var(--edge);border-radius:var(--radius);padding:16px;margin-bottom:14px}
+    form h2{margin:4px 0 10px;font-size:18px}
+    label{display:block;font-weight:800;margin:8px 0 8px}
+    input,textarea{
+      width:100%;padding:16px 14px;font-size:18px;background:#0c0e14;color:var(--text);
+      border:2px solid #242a36;border-radius:14px;outline:none;transition:border-color .15s ease, box-shadow .15s ease;
+    }
+    textarea{min-height:140px;resize:vertical}
+    input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,197,24,.25)}
+    .row{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:680px){.row.two{grid-template-columns:1fr 1fr}}
+    .hint{color:var(--muted);font-size:13px;margin-top:6px}
+    .consent{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+    .consent input{width:auto;margin-top:5px}
+    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
+    button{border:none;border-radius:12px;padding:14px 18px;font-weight:900;font-size:18px;cursor:pointer}
+    .btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#111}
+    .btn-ghost{background:transparent;border:1px solid var(--edge);color:var(--text)}
+    footer{margin-top:14px}
+    footer .tag{display:block}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">GA</div>
+        <div>
+          <h1>Golden Auto Import</h1>
+          <div class="tag">Formulari i porosisë — 🇰🇷 ➜ 🇦🇱 / 🇽🇰 / 🇮🇹</div>
+        </div>
+      </div>
+      <div class="badge">WhatsApp: 068 662 2272</div>
+    </header>
+
+    <section class="panel">
+      <p>Ky është formulari zyrtar i porosisë për klientët që duan të marrin një makinë përmes Golden Auto Import.
+      Plotësoni të dhënat e kontaktit dhe specifikimet e makinës që dëshironi. Pas dërgimit, do t’ju kontaktojmë
+      shpejt me opsione konkrete.</p>
+    </section>
+
+    <!-- Dërgon direkt në email përmes FormSubmit -->
+    <form id="leadForm" action="https://formsubmit.co/goldenauto165@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Golden Auto — Kërkesë e re për makinë">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="Faleminderit! Kërkesa juaj u pranua. Do t’ju kontaktojmë së shpejti.">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="card">
+        <h2>Të dhënat e klientit</h2>
+        <div class="row two">
+          <div>
+            <label for="emri">Emri *</label>
+            <input id="emri" name="Emri" type="text" required placeholder="Shkruaj emrin">
+          </div>
+          <div>
+            <label for="mbiemri">Mbiemri *</label>
+            <input id="mbiemri" name="Mbiemri" type="text" required placeholder="Shkruaj mbiemrin">
+          </div>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="tel">Telefoni (WhatsApp) *</label>
+            <input id="tel" name="Telefoni" type="tel" required placeholder="+355 68 662 2272" inputmode="tel">
+            <div class="hint">Vendos numrin me kod shteti (p.sh. +355).</div>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" placeholder="emri@gmail.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Të dhënat e makinës së dëshiruar</h2>
+        <div class="row two">
+          <div>
+            <label for="tipi">Tipi i makinës *</label>
+            <input id="tipi" name="Tipi_makines" type="text" required placeholder="p.sh. SUV, Coupé, Sedan...">
+          </div>
+          <div>
+            <label for="lloji">Lloji / Marka & modeli *</label>
+            <input id="lloji" name="Lloji_Marka_Modeli" type="text" required placeholder="p.sh. Mercedes GLE 350 Coupé">
+          </div>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="motori">Motori</label>
+            <input id="motori" name="Motori" type="text" placeholder="p.sh. 2.0, 3.0, 63 AMG, etj.">
+          </div>
+          <div>
+            <label for="viti">Viti</label>
+            <input id="viti" name="Viti" type="number" min="2005" max="2030" placeholder="p.sh. 2019">
+          </div>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="km">Kilometrazhi</label>
+            <input id="km" name="Kilometrazhi" type="number" step="1000" placeholder="p.sh. 120000">
+          </div>
+          <div>
+            <label for="ngjyra">Ngjyra</label>
+            <input id="ngjyra" name="Ngjyra" type="text" placeholder="p.sh. e zezë, e bardhë, gri...">
+          </div>
+        </div>
+        <div>
+          <label for="ekstra">Opsione / Shënime shtesë</label>
+          <textarea id="ekstra" name="Opsione_Shenime" placeholder="Opsionale — p.sh. paketë AMG, panorama, accident-free, 1 pronar, etj."></textarea>
+        </div>
+      </div>
+
+      <div class="consent">
+        <input id="cons" type="checkbox" required>
+        <label for="cons">Pranoj përpunimin e të dhënave për kontakt dhe ofertë (GDPR).</label>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary" type="submit" id="submitBtn">Dërgo kërkesën</button>
+        <a class="btn-ghost" href="https://wa.me/355686622272">WhatsApp</a>
+      </div>
+    </form>
+
+    <footer>
+      <span class="tag">© Golden Auto Import — 🇰🇷 Inspektim • Blerje • Transport • Doganë</span>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const btn = document.getElementById('submitBtn');
+    form.addEventListener('submit', ()=>{ btn.disabled = true; btn.textContent = '...'; });
+  </script>
+</body>
+</html>
