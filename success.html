@@ -1,1 +1,41 @@
-
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faleminderit – Golden Auto</title>
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root{
+      --bg:#0b0c10; --text:#ecf2ff; --muted:#9aa4b2;
+      --accent:#ffd54a; --accent2:#6ec1ff; --shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fb; --text:#0f1220; --muted:#5d6676; --accent:#0f62fe; --accent2:#2ec4b6; --shadow: 0 12px 30px rgba(0,0,0,.08); }
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto; background:
+      radial-gradient(900px 600px at 85% -20%, rgba(110,193,255,.18), transparent 60%),
+      radial-gradient(800px 500px at -10% 120%, rgba(255,213,74,.15), transparent 55%),
+      var(--bg); color:var(--text);}
+    .wrap{max-width:780px; margin:0 auto; padding: clamp(24px, 6vw, 56px); text-align:center;}
+    .logo{width:66px;height:66px;border-radius:16px; background:linear-gradient(135deg, var(--accent), var(--accent2)); display:inline-block; box-shadow:var(--shadow);}
+    h1{font-size: clamp(26px,6vw,44px); margin:16px 0 10px;}
+    p{color:var(--muted); font-size: clamp(14px,2.6vw,16px); margin:10px auto; max-width:60ch;}
+    .card{margin-top:18px; padding: clamp(16px, 3.2vw, 26px); border-radius:20px; background:rgba(255,255,255,.06); box-shadow:var(--shadow);}
+    a.btn{display:inline-block; margin-top:12px; padding:14px 18px; border-radius:14px; background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#0b0b0b; font-weight:800; text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo"></div>
+    <h1>Faleminderit! ✅</h1>
+    <p>Kërkesa juaj u dërgua me sukses tek <strong>Golden Auto Import</strong>. Ekipi ynë do t’ju kontaktojë shumë shpejt.</p>
+    <div class="card">
+      <p>Nëse keni informacion shtesë, mund të na shkruani edhe në WhatsApp: <strong>+355 68 662 2272</strong>.</p>
+      <a class="btn" href="index.html">Kthehu te formulari</a>
+    </div>
+    <p style="margin-top:16px; font-size:12px;">© Golden Auto Import • 🇰🇷 → 🇦🇱</p>
+  </div>
+</body>
+</html>
