@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Auto Import — Porosit makinën</title>
+  <meta name="description" content="Golden Auto Import — Sill makinën tënde të ëndrrave nga Korea.">
+  <style>
+    :root{
+      --bg:#0a0b0e; --card:#0f1219; --edge:#1a2030; --text:#f7fafc; --muted:#a9b0bb;
+      --gold:#f5c518; --gold2:#ffe48a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg); color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;
+      background:linear-gradient(135deg,#171923,#0d0f16);color:var(--gold);font-weight:900;font-size:22px;border:1px solid var(--edge);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+    h1{font-size:clamp(28px,5vw,44px);margin:0}
+    .tag{color:var(--muted);font-size:14px}
+    .lang{display:flex;gap:8px}
+    .lang button{background:transparent;border:1px solid var(--edge);color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700}
+    .lang .active{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.25);}
+    .hero{
+      margin:26px 0;display:grid;gap:16px;grid-template-columns:1fr;
+      background:
+      linear-gradient(180deg, rgba(10,11,14,.60), rgba(10,11,14,.80)),
+      url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;background-position:center;
+      border:1px solid var(--edge);border-radius:18px;padding:26px;
+    }
+    .hero h2{font-size:clamp(22px,4.5vw,34px);margin:0 0 8px 0}
+    .hero p{font-size:18px;color:#e5e7eb;margin:0 0 16px}
+    .cta{display:inline-block;padding:16px 22px;border-radius:12px;font-weight:900;text-decoration:none;border:0;cursor:pointer;font-size:18px}
+    .cta-primary{background:linear-gradient(180deg,var(--gold),var(--gold2));color:#111}
+    .cta-ghost{border:1px solid var(--edge);color:var(--text);background:transparent}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .card{
+      background:linear-gradient(180deg,#111421,#0d1018);
+      border:1px solid var(--edge);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .list{margin:8px 0 0 18px; color:#cbd5e1; line-height:1.7}
+    footer{margin:22px 0 6px;color:var(--muted);font-size:14px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">GA</div>
+        <div>
+          <h1>Golden Auto Import</h1>
+          <div class="tag" id="tagline">🇰🇷 ➜ 🇦🇱 / 🇽🇰 / 🇮🇹 • Inspektim • Blerje • Transport • Doganë</div>
+        </div>
+      </div>
+      <div class="lang">
+        <button id="btnSQ" class="active">SQ</button>
+        <button id="btnEN">EN</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h2 id="heroTitle">Sill makinën tënde të ëndrrave nga Korea</h2>
+      <p id="heroText">Plotëso porosinë dhe ekipi ynë do të gjejë për ju opsionet më të mira me histori të pastër, inspektim profesional dhe transport deri në doganë.</p>
+      <div class="row">
+        <a class="cta cta-primary" id="ctaForm" href="index.html">📋 Hap Formularin e Porosisë</a>
+        <a class="cta cta-ghost" id="ctaWA" href="https://wa.me/355686622272?text=P%C3%ABrsh%C3%ABndetje!%20Jam%20i%20interesuar%20p%C3%ABr%20nj%C3%AB%20makin%C3%AB.%20%F0%9F%9A%97">💬 Shkruaj në WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0" id="whyTitle">Pse Golden Auto?</h2>
+      <ul class="list" id="whyList">
+        <li>Inspektim në terren në 🇰🇷 nga bashkëpunëtorët tanë</li>
+        <li>Raporte të detajuara me foto & video</li>
+        <li>Transport i sigurt dhe doganë të përfshirë</li>
+        <li>Transparencë totale: çmim final pa surpriza</li>
+      </ul>
+    </section>
+
+    <footer id="footer">© Golden Auto Import</footer>
+  </div>
+
+<script>
+  const sq = {
+    tagline: "🇰🇷 ➜ 🇦🇱 / 🇽🇰 / 🇮🇹 • Inspektim • Blerje • Transport • Doganë",
+    heroTitle: "Sill makinën tënde të ëndrrave nga Korea",
+    heroText: "Plotëso porosinë dhe ekipi ynë do të gjejë për ju opsionet më të mira me histori të pastër, inspektim profesional dhe transport deri në doganë.",
+    ctaForm: "📋 Hap Formularin e Porosisë",
+    ctaWA: "💬 Shkruaj në WhatsApp",
+    whyTitle: "Pse Golden Auto?",
+    whyList: [
+      "Inspektim në terren në 🇰🇷 nga bashkëpunëtorët tanë",
+      "Raporte të detajuara me foto & video",
+      "Transport i sigurt dhe doganë të përfshirë",
+      "Transparencë totale: çmim final pa surpriza"
+    ],
+    footer: "© Golden Auto Import"
+  };
+  const en = {
+    tagline: "🇰🇷 ➜ 🇦🇱 / 🇽🇰 / 🇮🇹 • Inspection • Purchase • Transport • Customs",
+    heroTitle: "Bring your dream car from Korea",
+    heroText: "Fill out the order form and our team will find the best options with clean history, professional inspection and secure transport.",
+    ctaForm: "📋 Open Order Form",
+    ctaWA: "💬 Chat on WhatsApp",
+    whyTitle: "Why Golden Auto?",
+    whyList: [
+      "On-site inspection in 🇰🇷 by our partners",
+      "Detailed reports with photos & video",
+      "Secure transport and customs handled",
+      "Full transparency: final price with no surprises"
+    ],
+    footer: "© Golden Auto Import"
+  };
+
+  const els = {
+    tagline: document.getElementById('tagline'),
+    heroTitle: document.getElementById('heroTitle'),
+    heroText: document.getElementById('heroText'),
+    ctaForm: document.getElementById('ctaForm'),
+    ctaWA: document.getElementById('ctaWA'),
+    whyTitle: document.getElementById('whyTitle'),
+    whyList: document.getElementById('whyList'),
+    footer: document.getElementById('footer'),
+    btnSQ: document.getElementById('btnSQ'),
+    btnEN: document.getElementById('btnEN')
+  };
+
+  function setLang(dict){
+    els.tagline.textContent = dict.tagline;
+    els.heroTitle.textContent = dict.heroTitle;
+    els.heroText.textContent = dict.heroText;
+    els.ctaForm.textContent = dict.ctaForm;
+    els.ctaWA.textContent = dict.ctaWA;
+    els.whyTitle.textContent = dict.whyTitle;
+    els.whyList.innerHTML = dict.whyList.map(i=>`<li>${i}</li>`).join("");
+    els.footer.textContent = dict.footer;
+  }
+
+  els.btnSQ.addEventListener('click', ()=>{
+    setLang(sq);
+    els.btnSQ.classList.add('active'); els.btnEN.classList.remove('active');
+  });
+  els.btnEN.addEventListener('click', ()=>{
+    setLang(en);
+    els.btnEN.classList.add('active'); els.btnSQ.classList.remove('active');
+  });
+</script>
+</body>
+</html>
