@@ -1,161 +1,182 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Golden Auto Import — Formulari i porosisë</title>
-  <meta name="description" content="Formular zyrtar i Golden Auto Import për porositë e makinave nga Korea — Shqipëri / Kosovë / Itali." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Auto – Formular Porosie</title>
+  <meta name="description" content="Formular i thjeshtë për porosi makine te Golden Auto Import.">
+  <meta name="color-scheme" content="light dark">
   <style>
     :root{
-      --bg:#0a0b0e; --panel:#10131a; --edge:#1b1f29; --muted:#a9b0bb;
-      --text:#f5f7fa; --gold:#f5c518; --gold-2:#ffe48a; --err:#ff6b6b; --radius:16px;
+      --bg:#0b0c10; --glass:rgba(255,255,255,.06);
+      --text:#ecf2ff; --muted:#9aa4b2;
+      --accent:#ffd54a; --accent2:#6ec1ff;
+      --ok:#00cf7f; --err:#ff5c5c;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --focus: 0 0 0 3px rgba(110,193,255,.35);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}
-    a{color:var(--gold);text-decoration:none}
-    .wrap{max-width:860px;margin:0 auto;padding:22px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
-      background:radial-gradient(120% 120% at 10% 10%, rgba(245,197,24,.28), transparent 55%), linear-gradient(135deg,#171923,#0d0f16);
-      border:1px solid var(--edge);box-shadow:0 14px 40px rgba(0,0,0,.35);font-weight:900;color:var(--gold)}
-    h1{font-size:clamp(24px,4.8vw,40px);margin:0}
-    .tag{color:var(--muted);font-size:15px}
-    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--edge);border-radius:999px;background:#0f1118;color:var(--muted);font-size:14px}
-    .panel{background:linear-gradient(180deg,#12141b,#0f1116);border:1px solid var(--edge);border-radius:var(--radius);padding:18px;margin-bottom:14px}
-    .panel p{margin:0;font-size:18px}
-    form .card{background:linear-gradient(180deg,#12141b,#10131a);border:1px solid var(--edge);border-radius:var(--radius);padding:16px;margin-bottom:14px}
-    form h2{margin:4px 0 10px;font-size:18px}
-    label{display:block;font-weight:800;margin:8px 0 8px}
-    input,textarea{
-      width:100%;padding:16px 14px;font-size:18px;background:#0c0e14;color:var(--text);
-      border:2px solid #242a36;border-radius:14px;outline:none;transition:border-color .15s ease, box-shadow .15s ease;
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fb; --glass:#ffffffeb;
+        --text:#0f1220; --muted:#5d6676;
+        --accent:#0f62fe; --accent2:#2ec4b6;
+        --ok:#12b886; --err:#e03131;
+        --shadow: 0 12px 30px rgba(0,0,0,.08);
+        --focus: 0 0 0 3px rgba(15,98,254,.2);
+      }
     }
-    textarea{min-height:140px;resize:vertical}
-    input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,197,24,.25)}
-    .row{display:grid;grid-template-columns:1fr;gap:12px}
-    @media(min-width:680px){.row.two{grid-template-columns:1fr 1fr}}
-    .hint{color:var(--muted);font-size:13px;margin-top:6px}
-    .consent{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
-    .consent input{width:auto;margin-top:5px}
-    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
-    button{border:none;border-radius:12px;padding:14px 18px;font-weight:900;font-size:18px;cursor:pointer}
-    .btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#111}
-    .btn-ghost{background:transparent;border:1px solid var(--edge);color:var(--text)}
-    footer{margin-top:14px}
-    footer .tag{display:block}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto;
+      background:
+        radial-gradient(900px 600px at 85% -20%, rgba(110,193,255,.18), transparent 60%),
+        radial-gradient(800px 500px at -10% 120%, rgba(255,213,74,.15), transparent 55%),
+        var(--bg);
+      color:var(--text); line-height:1.45;
+    }
+    .wrap{max-width:820px; margin:0 auto; padding: clamp(18px,4vw,40px);}
+    header{text-align:center; margin-bottom:18px;}
+    .logo-wrap{display:flex; align-items:center; justify-content:center; gap:14px;}
+    .logo{
+      width:58px; height:58px; border-radius:14px; object-fit:cover; box-shadow: var(--shadow);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center; padding:8px 12px;
+      border-radius:999px; background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#0b0b0b; font-weight:800; box-shadow: var(--shadow);
+    }
+    h1{font-size: clamp(26px, 6vw, 42px); margin:14px 0 6px;}
+    .lead{color:var(--muted); font-size: clamp(14px, 2.6vw, 16px);}
+    form{
+      background: var(--glass); padding: clamp(14px,3vw,24px);
+      border-radius:20px; box-shadow: var(--shadow);
+    }
+    label{font-weight:700; display:block; margin:10px 0 6px;}
+    input, textarea, select{
+      width:100%; padding:14px; border-radius:14px;
+      border:1px solid rgba(120,130,150,.25); background: rgba(255,255,255,.04);
+      color:var(--text); font-size:16px; outline:none;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    input:focus, textarea:focus, select:focus{ box-shadow: var(--focus); }
+    textarea{min-height:110px; resize: vertical;}
+    .actions{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
+    button{
+      cursor:pointer; border:none; font-weight:800; font-size:16px; padding:14px 18px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); color:#0b0b0b; box-shadow: var(--shadow);
+    }
+    .hint{color:var(--muted); font-size:13px;}
+    .status{display:none; margin-top:12px; padding:12px; border-radius:12px; font-weight:700;}
+    .ok{background: color-mix(in oklab, var(--ok) 22%, var(--glass));}
+    .err{background: color-mix(in oklab, var(--err) 20%, var(--glass));}
+    footer{text-align:center; margin-top:16px; font-size:13px; color:var(--muted);}
+    .small-note{font-size:12px; color:var(--muted); margin-top:10px;}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">
-        <div class="logo">GA</div>
-        <div>
-          <h1>Golden Auto Import</h1>
-          <div class="tag">Formulari i porosisë — 🇰🇷 ➜ 🇦🇱 / 🇽🇰 / 🇮🇹</div>
-        </div>
+      <div class="logo-wrap">
+        <!-- ZËVENDËSO src ME LOGON TËNDE -->
+        <img class="logo" src="logo-golden-auto.png" alt="Golden Auto">
+        <div class="badge">GA • Golden Auto Import</div>
       </div>
-      <div class="badge">WhatsApp: 068 662 2272</div>
+      <h1>Formular Porosie</h1>
+      <p class="lead">Plotësoni kërkesën tuaj për makinë. Mesazhi dërgohet <strong>drejt në email</strong>.</p>
     </header>
 
-    <section class="panel">
-      <p>Ky është formulari zyrtar i porosisë për klientët që duan të marrin një makinë përmes Golden Auto Import.
-      Plotësoni të dhënat e kontaktit dhe specifikimet e makinës që dëshironi. Pas dërgimit, do t’ju kontaktojmë
-      shpejt me opsione konkrete.</p>
-    </section>
-
-    <!-- Dërgon direkt në email përmes FormSubmit -->
-    <form id="leadForm" action="https://formsubmit.co/goldenauto165@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Golden Auto — Kërkesë e re për makinë">
-      <input type="hidden" name="_template" value="table">
+    <form id="form" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="KËRKESË E RE – Golden Auto Import">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_autoresponse" value="Faleminderit! Kërkesa juaj u pranua. Do t’ju kontaktojmë së shpejti.">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="text" name="_honey" style="display:none">
 
-      <div class="card">
-        <h2>Të dhënat e klientit</h2>
-        <div class="row two">
-          <div>
-            <label for="emri">Emri *</label>
-            <input id="emri" name="Emri" type="text" required placeholder="Shkruaj emrin">
-          </div>
-          <div>
-            <label for="mbiemri">Mbiemri *</label>
-            <input id="mbiemri" name="Mbiemri" type="text" required placeholder="Shkruaj mbiemrin">
-          </div>
-        </div>
-        <div class="row two">
-          <div>
-            <label for="tel">Telefoni (WhatsApp) *</label>
-            <input id="tel" name="Telefoni" type="tel" required placeholder="+355 68 662 2272" inputmode="tel">
-            <div class="hint">Vendos numrin me kod shteti (p.sh. +355).</div>
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" placeholder="emri@gmail.com">
-          </div>
-        </div>
-      </div>
+      <label for="emri">Emër dhe mbiemër *</label>
+      <input id="emri" name="Emri" placeholder="p.sh. Ardit Hoxha" required>
 
-      <div class="card">
-        <h2>Të dhënat e makinës së dëshiruar</h2>
-        <div class="row two">
-          <div>
-            <label for="tipi">Tipi i makinës *</label>
-            <input id="tipi" name="Tipi_makines" type="text" required placeholder="p.sh. SUV, Coupé, Sedan...">
-          </div>
-          <div>
-            <label for="lloji">Lloji / Marka & modeli *</label>
-            <input id="lloji" name="Lloji_Marka_Modeli" type="text" required placeholder="p.sh. Mercedes GLE 350 Coupé">
-          </div>
-        </div>
-        <div class="row two">
-          <div>
-            <label for="motori">Motori</label>
-            <input id="motori" name="Motori" type="text" placeholder="p.sh. 2.0, 3.0, 63 AMG, etj.">
-          </div>
-          <div>
-            <label for="viti">Viti</label>
-            <input id="viti" name="Viti" type="number" min="2005" max="2030" placeholder="p.sh. 2019">
-          </div>
-        </div>
-        <div class="row two">
-          <div>
-            <label for="km">Kilometrazhi</label>
-            <input id="km" name="Kilometrazhi" type="number" step="1000" placeholder="p.sh. 120000">
-          </div>
-          <div>
-            <label for="ngjyra">Ngjyra</label>
-            <input id="ngjyra" name="Ngjyra" type="text" placeholder="p.sh. e zezë, e bardhë, gri...">
-          </div>
-        </div>
-        <div>
-          <label for="ekstra">Opsione / Shënime shtesë</label>
-          <textarea id="ekstra" name="Opsione_Shenime" placeholder="Opsionale — p.sh. paketë AMG, panorama, accident-free, 1 pronar, etj."></textarea>
-        </div>
-      </div>
+      <label for="tel">Numri i telefonit *</label>
+      <input id="tel" name="Telefoni" placeholder="+355 68 ..." inputmode="tel" required>
 
-      <div class="consent">
-        <input id="cons" type="checkbox" required>
-        <label for="cons">Pranoj përpunimin e të dhënave për kontakt dhe ofertë (GDPR).</label>
-      </div>
+      <label for="lloji">Lloji i makinës *</label>
+      <select id="lloji" name="Lloji i makines" required>
+        <option value="" disabled selected>Zgjidh...</option>
+        <optgroup label="Gjermane">
+          <option>Mercedes-Benz</option><option>BMW</option><option>Audi</option><option>Porsche</option><option>Volkswagen</option>
+        </optgroup>
+        <optgroup label="Italiane">
+          <option>Alfa Romeo</option><option>Fiat</option><option>Ferrari</option><option>Lamborghini</option><option>Maserati</option>
+        </optgroup>
+        <optgroup label="Britanike">
+          <option>Land Rover</option><option>Range Rover</option><option>Jaguar</option><option>Bentley</option><option>Rolls-Royce</option>
+        </optgroup>
+        <optgroup label="Japoneze">
+          <option>Toyota</option><option>Lexus</option><option>Honda</option><option>Mazda</option><option>Nissan</option><option>Subaru</option>
+        </optgroup>
+        <optgroup label="Koreane">
+          <option>Hyundai</option><option>Kia</option><option>Genesis</option>
+        </optgroup>
+        <optgroup label="Franceze">
+          <option>Peugeot</option><option>Citroën</option><option>Renault</option><option>Dacia</option>
+        </optgroup>
+        <optgroup label="Amerikane">
+          <option>Tesla</option><option>Ford</option><option>Chevrolet</option><option>Dodge</option><option>Jeep</option>
+        </optgroup>
+        <optgroup label="Të tjera / Premium">
+          <option>Volvo</option><option>Polestar</option><option>Skoda</option><option>Cupra</option><option>Mini</option>
+        </optgroup>
+        <option>Tjetër</option>
+      </select>
+
+      <label for="buxheti">Buxheti maksimal (EUR) *</label>
+      <input id="buxheti" name="Buxheti maksimal" type="number" min="5000" max="200000" step="100" placeholder="p.sh. 25000" required>
+
+      <label for="tjera">Të dhëna shtesë (opsionale)</label>
+      <textarea id="tjera" name="Te dhena shtese" placeholder="p.sh. modeli/viti/motori, opsione, ngjyra, kilometrazhi, afati..."></textarea>
 
       <div class="actions">
-        <button class="btn-primary" type="submit" id="submitBtn">Dërgo kërkesën</button>
-        <a class="btn-ghost" href="https://wa.me/355686622272">WhatsApp</a>
+        <button type="submit" id="send">Dërgo</button>
+        <span class="hint">Do të merrni konfirmim në email.</span>
       </div>
+
+      <div class="status ok" id="ok">✅ Po dërgohet…</div>
+      <div class="status err" id="err">⚠️ Plotësoni fushat me yll (*).</div>
+
+      <p class="small-note">Duke dërguar, pranoni kontaktin nga Golden Auto për ofertat e përshtatura.</p>
     </form>
 
-    <footer>
-      <span class="tag">© Golden Auto Import — 🇰🇷 Inspektim • Blerje • Transport • Doganë</span>
-    </footer>
+    <footer>© Golden Auto Import • 🇰🇷 → 🇦🇱 Premium Import</footer>
   </div>
 
-  <script>
-    const form = document.getElementById('leadForm');
-    const btn = document.getElementById('submitBtn');
-    form.addEventListener('submit', ()=>{ btn.disabled = true; btn.textContent = '...'; });
-  </script>
+<script>
+  (function(){
+    const form = document.getElementById('form');
+    const ok = document.getElementById('ok');
+    const err = document.getElementById('err');
+    const send = document.getElementById('send');
+    function val(id){ return (document.getElementById(id).value || "").trim(); }
+    function validate(){
+      let okV = true;
+      ["emri","tel","lloji","buxheti"].forEach(id=>{
+        const el = document.getElementById(id);
+        if(!val(id)){ el.style.borderColor = "var(--err)"; okV = false; }
+        else el.style.borderColor = "rgba(120,130,150,.25)";
+      });
+      return okV;
+    }
+    form.addEventListener("submit", (e)=>{
+      if(!validate()){
+        e.preventDefault();
+        err.style.display = "block";
+        ok.style.display = "none";
+        return;
+      }
+      err.style.display = "none";
+      ok.style.display = "block";
+      send.disabled = true;
+      send.style.opacity = .7;
+      send.textContent = "Duke dërguar…";
+    });
+  })();
+</script>
 </body>
 </html>
