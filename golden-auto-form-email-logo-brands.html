@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Auto – Porosi me Email</title>
+  <meta name="description" content="Formular i shkurtër për porosi makine, dërgohet direkt në email.">
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root{
+      --bg:#0b0c10; --glass:rgba(255,255,255,.06);
+      --text:#ecf2ff; --muted:#9aa4b2;
+      --accent:#ffd54a; --accent2:#6ec1ff;
+      --ok:#00cf7f; --err:#ff5c5c;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --focus: 0 0 0 3px rgba(110,193,255,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fb; --glass:#ffffffeb;
+        --text:#0f1220; --muted:#5d6676;
+        --accent:#0f62fe; --accent2:#2ec4b6;
+        --ok:#12b886; --err:#e03131;
+        --shadow: 0 12px 30px rgba(0,0,0,.08);
+        --focus: 0 0 0 3px rgba(15,98,254,.2);
+      }
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto;
+      background:
+        radial-gradient(900px 600px at 85% -20%, rgba(110,193,255,.18), transparent 60%),
+        radial-gradient(800px 500px at -10% 120%, rgba(255,213,74,.15), transparent 55%),
+        var(--bg);
+      color:var(--text); line-height:1.45;
+    }
+    .wrap{max-width:820px; margin:0 auto; padding: clamp(18px,4vw,40px);}
+    header{text-align:center; margin-bottom:18px;}
+    .logo-wrap{display:flex; align-items:center; justify-content:center; gap:14px;}
+    .logo{
+      width:58px; height:58px; border-radius:14px; object-fit:cover; box-shadow: var(--shadow);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center; padding:8px 12px;
+      border-radius:999px; background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#0b0b0b; font-weight:800; box-shadow: var(--shadow);
+    }
+    h1{font-size: clamp(26px, 6vw, 42px); margin:14px 0 6px;}
+    .lead{color:var(--muted); font-size: clamp(14px, 2.6vw, 16px);}
+    form{
+      background: var(--glass); padding: clamp(14px,3vw,24px);
+      border-radius:20px; box-shadow: var(--shadow);
+    }
+    label{font-weight:700; display:block; margin:10px 0 6px;}
+    input, textarea, select{
+      width:100%; padding:14px; border-radius:14px;
+      border:1px solid rgba(120,130,150,.25); background: rgba(255,255,255,.04);
+      color:var(--text); font-size:16px; outline:none;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    input:focus, textarea:focus, select:focus{ box-shadow: var(--focus); }
+    textarea{min-height:110px; resize: vertical;}
+    .actions{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
+    button{
+      cursor:pointer; border:none; font-weight:800; font-size:16px; padding:14px 18px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); color:#0b0b0b; box-shadow: var(--shadow);
+    }
+    .hint{color:var(--muted); font-size:13px;}
+    .status{display:none; margin-top:12px; padding:12px; border-radius:12px; font-weight:700;}
+    .ok{background: color-mix(in oklab, var(--ok) 22%, var(--glass));}
+    .err{background: color-mix(in oklab, var(--err) 20%, var(--glass));}
+    footer{text-align:center; margin-top:16px; font-size:13px; color:var(--muted);}
+    .small-note{font-size:12px; color:var(--muted); margin-top:10px;}
+    .tip{font-size:12px; color:var(--muted); text-align:center; margin-top:10px;}
+    .tip code{background:rgba(0,0,0,.18); padding:2px 6px; border-radius:6px;}
+    @media (prefers-color-scheme: light){
+      .tip code{background: rgba(0,0,0,.06);}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo-wrap">
+        <!-- ZËVENDËSOJE src ME LOGON TËNDE (p.sh. logo-golden-auto.png në të njëjtën dosje) -->
+        <img class="logo" src="logo-golden-auto.png" alt="Golden Auto">
+        <div class="badge">GA • Golden Auto Import</div>
+      </div>
+      <h1>Porosia juaj, me Email</h1>
+      <p class="lead">Plotësoni shkurt kërkesën për makinën tuaj. Mesazhi dërgohet <strong>direkt në email-in tuaj</strong>.</p>
+    </header>
+
+    <!-- ZEVENDESO: vendosni email-in tuaj real te Golden Auto -->
+    <form id="form" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" novalidate>
+      <!-- FormSubmit options -->
+      <input type="hidden" name="_subject" value="KËRKESË E RE – Golden Auto Import">
+      <input type="hidden" name="_captcha" value="false">
+      <!-- _next: ku te ridrejtohet pas suksesit (mund ta ndryshoni ne nje URL tuaj) -->
+      <!-- <input type="hidden" name="_next" value="https://yourdomain.com/faleminderit.html"> -->
+      <!-- Honeypot antispam -->
+      <input type="text" name="_honey" style="display:none">
+
+      <label for="emri">Emër dhe mbiemër *</label>
+      <input id="emri" name="Emri" placeholder="p.sh. Ardit Hoxha" required>
+
+      <label for="tel">Numri i telefonit *</label>
+      <input id="tel" name="Telefoni" placeholder="+355 68 ..." inputmode="tel" required>
+
+      <label for="lloji">Lloji i makinës *</label>
+      <select id="lloji" name="Lloji i makines" required>
+        <option value="" disabled selected>Zgjidh...</option>
+        <optgroup label="Gjermane">
+          <option>Mercedes-Benz</option>
+          <option>BMW</option>
+          <option>Audi</option>
+          <option>Porsche</option>
+          <option>Volkswagen</option>
+          <option>Opel</option>
+          <option>Smart</option>
+        </optgroup>
+        <optgroup label="Italiane">
+          <option>Alfa Romeo</option>
+          <option>Fiat</option>
+          <option>Ferrari</option>
+          <option>Lamborghini</option>
+          <option>Maserati</option>
+        </optgroup>
+        <optgroup label="Britanike">
+          <option>Land Rover</option>
+          <option>Range Rover</option>
+          <option>Jaguar</option>
+          <option>Bentley</option>
+          <option>Rolls-Royce</option>
+          <option>Mini</option>
+          <option>McLaren</option>
+          <option>Aston Martin</option>
+        </optgroup>
+        <optgroup label="Japoneze">
+          <option>Toyota</option>
+          <option>Lexus</option>
+          <option>Honda</option>
+          <option>Mazda</option>
+          <option>Nissan</option>
+          <option>Infiniti</option>
+          <option>Subaru</option>
+          <option>Mitsubishi</option>
+          <option>Suzuki</option>
+        </optgroup>
+        <optgroup label="Koreane">
+          <option>Hyundai</option>
+          <option>Kia</option>
+          <option>Genesis</option>
+        </optgroup>
+        <optgroup label="Franceze">
+          <option>Peugeot</option>
+          <option>Citroën</option>
+          <option>Renault</option>
+          <option>DS Automobiles</option>
+          <option>Dacia</option>
+        </optgroup>
+        <optgroup label="Amerikane">
+          <option>Tesla</option>
+          <option>Ford</option>
+          <option>Chevrolet</option>
+          <option>Dodge</option>
+          <option>Jeep</option>
+          <option>RAM</option>
+          <option>Cadillac</option>
+          <option>GMC</option>
+        </optgroup>
+        <optgroup label="Të tjera / EV / Supercar">
+          <option>Volvo</option>
+          <option>Polestar</option>
+          <option>Skoda</option>
+          <option>SEAT</option>
+          <option>Cupra</option>
+          <option>Saab</option>
+          <option>Bugatti</option>
+          <option>Rivian</option>
+          <option>Lucid</option>
+          <option>BYD</option>
+        </optgroup>
+        <option>Tjetër</option>
+      </select>
+
+      <label for="buxheti">Buxheti maksimal (EUR) *</label>
+      <input id="buxheti" name="Buxheti maksimal" type="number" min="5000" max="200000" step="100" placeholder="p.sh. 25000" required>
+
+      <label for="tjera">Të dhëna shtesë (opsionale)</label>
+      <textarea id="tjera" name="Te dhena shtese" placeholder="p.sh. modeli/viti/motori, opsione, ngjyra, kilometrazhi, afati..."></textarea>
+
+      <div class="actions">
+        <button type="submit" id="send">Dërgo</button>
+        <span class="hint">Do të merrni konfirmim në email.</span>
+      </div>
+
+      <div class="status ok" id="ok">✅ Po dërgohet…</div>
+      <div class="status err" id="err">⚠️ Plotësoni fushat me yll (*).</div>
+
+      <p class="small-note">Duke dërguar, pranoni kontaktin nga Golden Auto për ofertat e përshtatura.</p>
+    </form>
+
+    <p class="tip">💡 Vendos logon tënde si skedar pranë këtij HTML-i dhe ndrysho <code>src="logo-golden-auto.png"</code> me emrin e saktë të skedarit.</p>
+    <p class="tip">💡 Zëvendëso <code>YOUR_EMAIL_HERE</code> me email-in tënd (p.sh. <code>info@goldenauto.al</code>), ngarkoje faqen në GitHub Pages/Netlify dhe shpërndaje linkun.</p>
+
+    <footer>© Golden Auto Import • 🇰🇷 → 🇦🇱 Premium Import</footer>
+  </div>
+
+<script>
+  (function(){
+    const form = document.getElementById('form');
+    const ok = document.getElementById('ok');
+    const err = document.getElementById('err');
+    const send = document.getElementById('send');
+    function val(id){ return (document.getElementById(id).value || "").trim(); }
+    function validate(){
+      let okV = true;
+      ["emri","tel","lloji","buxheti"].forEach(id=>{
+        const el = document.getElementById(id);
+        if(!val(id)){ el.style.borderColor = "var(--err)"; okV = false; }
+        else el.style.borderColor = "rgba(120,130,150,.25)";
+      });
+      return okV;
+    }
+    form.addEventListener("submit", (e)=>{
+      if(!validate()){
+        e.preventDefault();
+        err.style.display = "block";
+        ok.style.display = "none";
+        return;
+      }
+      // show progress state
+      err.style.display = "none";
+      ok.style.display = "block";
+      send.disabled = true;
+      send.style.opacity = .7;
+      send.textContent = "Duke dërguar…";
+    });
+  })();
+</script>
+</body>
+</html>
